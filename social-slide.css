@@ -1,6 +1,28 @@
 body {
   background: #333333;
 }
+a {
+  text-decoration: none;
+  color: white;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  display: block;
+  margin: 10px auto 0;
+}
+a.fb-inner {
+  background: no-repeat url('sprite.png');
+  background-position: -40px 0;
+  width: 40px;
+  height: 40px;
+}
+a.tw-inner {
+  background: no-repeat url('sprite.png');
+  background-position: 0 0;
+  width: 40px;
+  height: 40px;
+}
 section {
   max-width: 600px;
   margin: 12.5em auto;
@@ -10,9 +32,14 @@ section {
   width: 100%;
 }
 .social-share {
-  width: 72px;
-  height: 54px;
+  width: 80px;
+  height: 60px;
   display: inline-block;
-  background: #3aafc2;
-  border-radius: 3px;
+  border-radius: 6px;
+}
+.social-share.fb {
+  background: -webkit-gradient(radial, 40 65, 30, 40 220, 160, from(rgba(51, 88, 144, 0.99)), to(rgba(51, 88, 144, 0.99))), -webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(rgba(54, 93, 152, 0.99)), to(rgba(54, 93, 152, 0.99))), -webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(rgba(54, 93, 152, 0.99)), to(rgba(54, 93, 152, 0.99))) rgba(61, 105, 171, 0.99);
+}
+.social-share.tw {
+  background: -webkit-gradient(radial, 40 65, 30, 40 220, 160, from(rgba(56, 168, 186, 0.99)), to(rgba(56, 168, 186, 0.99))), -webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(rgba(58, 175, 194, 0.99)), to(rgba(58, 175, 194, 0.99))), -webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(rgba(58, 175, 194, 0.99)), to(rgba(58, 175, 194, 0.99))) rgba(76, 184, 201, 0.99);
 }

@@ -1,9 +1,40 @@
 //
 @bg-col: #333;
-@twitter-col: #3aafc2;
+@twitter-col: rgba(58, 175, 194, 0.99);
+@fb-col: rgba(54, 93, 152, 0.99);
+
+@width: 80;
+@height: 60;
+
+@icn-size: 40px;
 
 body {
 	background: @bg-col;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	font-family: "Helvetica", "Arial", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	display: block;
+	margin: 10px auto 0;
+
+	&.fb-inner {
+		background: no-repeat url('sprite.png');
+		background-position: -40px 0;
+		width: @icn-size;
+		height: @icn-size;
+	}
+
+	&.tw-inner {
+		background: no-repeat url('sprite.png');
+		background-position: 0 0;
+		width: @icn-size;
+		height: @icn-size;
+	}
 }
 
 section {
@@ -13,13 +44,25 @@ section {
 	padding: 2em;
 	height: 30em;
 	width: 100%;
-	// background-color: red; // just for debugging
 }
 
 .social-share {
-	width: 72px;
-	height: 54px;
+	width: ~"@{width}px";
+	height: ~"@{height}px";
 	display: inline-block;
-	background: @twitter-col;
-	border-radius: 3px;
+	border-radius: 6px;
+	
+	&.fb {
+		background:
+		-webkit-gradient(radial, 40 65, 30, 40 220, 160, from(darken(@fb-col,2%)), to(darken(@fb-col,2%))), 
+		-webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(@fb-col), to(@fb-col)), 
+		-webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(@fb-col), to(@fb-col)) lighten(@fb-col, 5%);
+	}
+
+	&.tw {
+		background:
+		-webkit-gradient(radial, 40 65, 30, 40 220, 160, from(darken(@twitter-col,2%)), to(darken(@twitter-col,2%))), 
+		-webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(@twitter-col), to(@twitter-col)), 
+		-webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(@twitter-col), to(@twitter-col)) lighten(@twitter-col, 5%);
+	}
 }
