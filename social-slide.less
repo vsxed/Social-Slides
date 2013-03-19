@@ -1,26 +1,97 @@
-//
+// -- Mixins --
+.transition (@trans-time, @trans-grad: ease-in-out) {
+  -webkit-transition: all @trans-time @trans-grad;  
+     -moz-transition: all @trans-time @trans-grad;
+      -ms-transition: all @trans-time @trans-grad;
+       -o-transition: all @trans-time @trans-grad;
+          transition: all @trans-time @trans-grad;
+}
+
+.gradient (@origin: top, @start: #ffffff, @stop: #f7f7f7) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image:    -moz-linear-gradient(@origin, @start, @stop);
+    background-image:     -ms-linear-gradient(@origin, @start, @stop);
+    background-image:      -o-linear-gradient(@origin, @start, @stop);
+    background-image:         linear-gradient(@origin, @start, @stop);
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{stop}', GradientType=0);"
+}
+
+// -- Variables --
 @bg-col: #333;
 @twitter-col: rgba(58, 175, 194, 0.99);
 @fb-col: rgba(54, 93, 152, 0.99);
-
 @width: 80;
 @height: 60;
-
+@grey: #888;
 @icn-size: 40px;
 
+// -- Import Open Sans --
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+// -- Codepen related --
 body {
-	background: @bg-col;
+  padding: 3em 2em;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  background: @bg-col;
 }
 
-a {
-	text-decoration: none;
-	color: white;
-	font-family: "Helvetica", "Arial", sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	text-align: center;
+.credit {
 	display: block;
-	margin: 10px auto 0;
+	max-width: 400px;
+	text-align: center;
+	padding: 0;
+	font-size: 0.8em;
+	color: @grey;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.9);
+
+	p a,
+	a {
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+
+		&:hover,
+		&:active {
+			text-shadow: 0 0 5px rgba(255,255,255,0.4);
+			color: white;
+		}
+
+		&.button {
+			padding: 6px 12px;
+			margin-top: 10px;
+			background: darken(@bg-col, 10%);
+			border-radius: 3px;
+
+			&:hover {
+				background: lighten(@bg-col, 10%);
+			}
+		}
+	}
+
+	p:last-of-type {
+		margin-bottom: 30px;
+	}
+}
+
+// -- Pen related --
+section {
+	max-width: 175px;
+	margin: 0 auto;
+	display: block;
+	padding: 2em;
+	width: 100%;
+}
+
+span {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	text-align: center;
+	.transition(0.3s);
+	display: block;
 
 	&.fb-inner {
 		background: no-repeat url('sprite.png');
@@ -37,20 +108,15 @@ a {
 	}
 }
 
-section {
-	max-width: 600px;
-	margin: 12.5em auto;
-	display: block;
-	padding: 2em;
-	height: 30em;
-	width: 100%;
-}
-
 .social-share {
 	width: ~"@{width}px";
 	height: ~"@{height}px";
 	display: inline-block;
+	position:relative;
+	overflow: hidden; 
 	border-radius: 6px;
+
+	&:first-of-type {margin-right: 10px;}
 	
 	&.fb {
 		background:
@@ -65,4 +131,26 @@ section {
 		-webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(@twitter-col), to(@twitter-col)), 
 		-webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(@twitter-col), to(@twitter-col)) lighten(@twitter-col, 5%);
 	}
+
+	&:hover > span {top: -29px; .transition(0.3s);}
+	&:hover > .cta {bottom: 0; .transition(0.3s);}
+}
+
+.cta {
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 6px 0;
+	text-align: center;
+	width: ~"@{width}px";
+	position:absolute;
+	border-radius: 0 0 6px 6px;
+	bottom: -60px;
+	display: block;
+	box-shadow: inset 0 1px 0 0 #fff, 0 -1px 0 0 rgba(0,0,0,0.3);
+	.gradient(top left, #e8e8e8, #fff);
+	.transition(0.3s);
+
+	&.tw {color: @twitter-col;}
+	&.fb {color: @fb-col;}
 }
