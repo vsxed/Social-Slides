@@ -21,8 +21,8 @@
 @bg-col: #333;
 @twitter-col: rgba(58, 175, 194, 0.99);
 @fb-col: rgba(54, 93, 152, 0.99);
-@width: 80;
-@height: 60;
+@width: 72;
+@height: 54;
 @grey: #888;
 @icn-size: 40px;
 
@@ -87,22 +87,20 @@ section {
 
 span {
 	position: absolute;
-	top: 10px;
-	left: 20px;
+	top: 7px;
+	left: 16px;
 	text-align: center;
 	.transition(0.3s);
 	display: block;
 
 	&.fb-inner {
-		background: no-repeat url('sprite.png');
-		background-position: -40px 0;
+		background: no-repeat url('sprite.png') -41px 0;
 		width: @icn-size;
 		height: @icn-size;
 	}
 
 	&.tw-inner {
-		background: no-repeat url('sprite.png');
-		background-position: 0 0;
+		background: no-repeat url('sprite.png') 0 0;
 		width: @icn-size;
 		height: @icn-size;
 	}
@@ -120,16 +118,19 @@ span {
 	
 	&.fb {
 		background:
-		-webkit-gradient(radial, 40 65, 30, 40 220, 160, from(darken(@fb-col,2%)), to(darken(@fb-col,2%))), 
-		-webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(@fb-col), to(@fb-col)), 
-		-webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(@fb-col), to(@fb-col)) lighten(@fb-col, 5%);
+		-webkit-gradient(radial, 37 56, 25, 36 190, 144, from(darken(@fb-col,2%)), to(darken(@fb-col,2%))), 
+		-webkit-gradient(radial, -10 72, 10, 310 -72, 72, from(@fb-col), to(@fb-col)), 
+		-webkit-gradient(radial, 72 72, 20, -275 -72, 72, from(@fb-col), to(@fb-col)) lighten(@fb-col, 5%) !important;
+		background: no-repeat url('sprite.png') 0 -47px;
+
 	}
 
 	&.tw {
 		background:
-		-webkit-gradient(radial, 40 65, 30, 40 220, 160, from(darken(@twitter-col,2%)), to(darken(@twitter-col,2%))), 
-		-webkit-gradient(radial, -10 80, 15, 355 -80, 80, from(@twitter-col), to(@twitter-col)), 
-		-webkit-gradient(radial, 80 80, 20, -275 -80, 80, from(@twitter-col), to(@twitter-col)) lighten(@twitter-col, 5%);
+		-webkit-gradient(radial, 37 56, 25, 36 190, 144, from(darken(@twitter-col,2%)), to(darken(@twitter-col,2%))), 
+		-webkit-gradient(radial, -10 72, 10, 310 -72, 72, from(@twitter-col), to(@twitter-col)), 
+		-webkit-gradient(radial, 72 72, 20, -275 -72, 72, from(@twitter-col), to(@twitter-col)) lighten(@twitter-col, 5%) !important;
+		background: no-repeat url('sprite.png') -73px -47px;
 	}
 
 	&:hover > span {top: -29px; .transition(0.3s);}
